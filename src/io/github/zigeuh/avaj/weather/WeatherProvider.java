@@ -1,6 +1,6 @@
 package io.github.zigeuh.avaj.weather;
 
-import io.github.zigeuh.avaj.Coordinates;
+import io.github.zigeuh.avaj.aircraft.Coordinates;
 
 public class WeatherProvider {
     private static final WeatherProvider instance = new WeatherProvider();

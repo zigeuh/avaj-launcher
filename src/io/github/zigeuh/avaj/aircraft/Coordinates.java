@@ -1,4 +1,4 @@
-package io.github.zigeuh.avaj;
+package io.github.zigeuh.avaj.aircraft;
 
 public class Coordinates {
 
