@@ -1,5 +1,7 @@
 package io.github.zigeuh.avaj.aircraft;
 
+import io.github.zigeuh.avaj.utils.Logger;
+
 public class Helicopter extends Aircraft {
     public Helicopter(long p_id, String p_name, Coordinates p_coordinate) {
         super(p_id, p_name, p_coordinate);
@@ -13,9 +15,7 @@ public class Helicopter extends Aircraft {
         int latitude = currentCoords.getLatitude();
         int height = currentCoords.getHeight();
 
-        String prefix = "Helicopter#" + this.name + "(" + this.id + ")";
-
-        String message = prefix + ": ";
+        String message = ": ";
 
         switch (currentWeather) {
             case "SUN" -> {
@@ -38,11 +38,10 @@ public class Helicopter extends Aircraft {
         }
 
         this.coordinates = new Coordinates(longitude, latitude, Math.min(height, 100));
-        System.out.println(message);
+        Logger.log(this + message);
 
         if (this.coordinates.getHeight() <= 0) {
-            System.out.println(prefix + " landing");
-            System.out.println("Tower says: " + prefix + " unregistered from weather tower.");
+            Logger.log(this + " landing");
             weatherTower.unregister(this);
         }
     }
