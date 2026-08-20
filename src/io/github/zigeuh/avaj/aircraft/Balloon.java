@@ -28,7 +28,7 @@ public class Balloon extends Aircraft {
                 message += "Looks like the rain is giving our balloon an unexpected weight-loss workout, time to burn a bit more fuel to stay up!";
             }
             case "FOG" -> {
-                height += 3;
+                height -= 3;
                 message += "Down we go into the soup! Hold tight while I find us a nice little clearing to land.";
             }
             case "SNOW" -> {
