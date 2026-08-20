@@ -23,8 +23,9 @@ public class Tower {
     }
 
     protected void conditionChanged() {
-        for (Flyable observer: observers) {
-            observer.updateConditions();
+        List<Flyable> currentObservers = new ArrayList<>(observers);
+        for (Flyable flyable : currentObservers) {
+            flyable.updateConditions();
         }
     }
 }
