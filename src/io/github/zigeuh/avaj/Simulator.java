@@ -26,8 +26,6 @@ public class Simulator {
         }
 
         try {
-            Logger.init("simulation.txt");
-
             List<String> lines = Files.readAllLines(Path.of(args[0]));
             if (lines.isEmpty()) {
                 throw new InvalidScenarioException(args[0] + " is empty.");
@@ -81,6 +79,8 @@ public class Simulator {
 
             WeatherTower weatherTower = new WeatherTower();
 
+            Logger.init("simulation.txt");
+
             for (Flyable flyable: flyables) {
                 flyable.registerTower(weatherTower);
             }
@@ -92,7 +92,7 @@ public class Simulator {
         } catch (IOException e) {
             System.out.println("An error occurred: " + e.getMessage());
         } catch (NumberFormatException e) {
-            System.out.println(e.getMessage().substring(18) + " is not a positive integer.");
+            System.out.println("Number Format Exception: " + e.getMessage());
         } catch (InvalidNumberInputException | InvalidScenarioException e) {
             System.out.println(e.getMessage());
         } catch (Exception e) {
