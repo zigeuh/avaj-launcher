@@ -43,6 +43,10 @@ public class Simulator {
             }
 
             lines = lines.subList(1, lines.size());
+            if (lines.isEmpty()) {
+                throw new InvalidScenarioException(args[0] + " doesn't contain any aircraft.");
+            }
+
             AircraftFactory aircraftFactory = AircraftFactory.getInstance();
 
             for (String line: lines) {
